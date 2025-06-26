@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CaxtoX - pietoxxX</title>
+
+  <!-- ✅ Google Font: El Messiri -->
+  <link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'El Messiri', sans-serif; /* ✅ Applied font */
+      background: #0b0b0d;
+      overflow: hidden;
+      color: white;
+    }
+
+    #particles-js {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+
+    .container {
+      padding: 20px;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .logo {
+      width: 200px;
+      margin: 20px auto;
+      border-radius: 12px;
+      box-shadow: 0 0 10px red;
+    }
+
+    .subscribe {
+      background-color: red;
+      color: white;
+      padding: 10px;
+      font-weight: bold;
+      margin: 10px 0;
+      border-radius: 8px;
+      box-shadow: 0 0 10px red;
+    }
+
+    .toggle-container {
+      background: #111;
+      border: 2px solid red;
+      border-radius: 8px;
+      padding: 10px 20px;
+      margin: 10px auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 350px;
+    }
+
+    .toggle-label {
+      font-weight: bold;
+      color: white;
+    }
+
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 50px;
+      height: 24px;
+    }
+
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: #ccc;
+      transition: 0.4s;
+      border-radius: 24px;
+    }
+
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 18px;
+      width: 18px;
+      left: 3px;
+      bottom: 3px;
+      background-color: white;
+      transition: 0.4s;
+      border-radius: 50%;
+    }
+
+    input:checked + .slider {
+      background-color: red;
+    }
+
+    input:checked + .slider:before {
+      transform: translateX(26px);
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .btn {
+      background-color: red;
+      padding: 10px 30px;
+      color: white;
+      font-weight: bold;
+      border: none;
+      border-radius: 10px;
+      box-shadow: 0 0 10px red;
+      cursor: pointer;
+      transition: 0.3s;
+      font-family: 'El Messiri', sans-serif;
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+    }
+
+    .footer {
+      font-size: 12px;
+      color: #aaa;
+      margin-top: 30px;
+      padding: 20px;
+      font-family: 'El Messiri', sans-serif;
+    }
+
+    .toast {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: rgba(255, 0, 0, 0.9);
+      color: white;
+      padding: 12px 20px;
+      border-radius: 10px;
+      font-weight: bold;
+      font-size: 16px;
+      display: none;
+      z-index: 999;
+      box-shadow: 0 0 10px red;
+      font-family: 'El Messiri', sans-serif;
+    }
+
+    @keyframes fadeInScale {
+      0% {
+        opacity: 0;
+        transform: scale(0.5) translate(-50%, -50%);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1) translate(-50%, -50%);
+      }
+    }
+
+    .toast.show {
+      display: block;
+      animation: fadeInScale 0.3s ease-out;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Red particle background -->
+<div id="particles-js"></div>
+
+<div class="container">
+  <img class="logo" src="https://i.ibb.co/KchFX9qt/d3fafc38694dba17c03b6ded46295b94.jpg" alt="Logo">
+
+  <div class="subscribe">MADE BY - pietoxxX</div>
+
+  <!-- Toggle switches -->
+  <div class="toggle-container">
+    <span class="toggle-label">DRAG MACRO 78%</span>
+    <label class="switch">
+      <input type="checkbox" class="toggle-option">
+      <span class="slider"></span>
+    </label>
+  </div>
+
+  <div class="toggle-container">
+    <span class="toggle-label">DRAG SENSI SCRIPT 10.0</span>
+    <label class="switch">
+      <input type="checkbox" class="toggle-option">
+      <span class="slider"></span>
+    </label>
+  </div>
+
+  <div class="toggle-container">
+    <span class="toggle-label">ALPHA REGEDIT+ 60%</span>
+    <label class="switch">
+      <input type="checkbox" class="toggle-option">
+      <span class="slider"></span>
+    </label>
+  </div>
+
+  <div class="toggle-container">
+    <span class="toggle-label">DRAG SENSI ACCURACY</span>
+    <label class="switch">
+      <input type="checkbox" class="toggle-option">
+      <span class="slider"></span>
+    </label>
+  </div>
+
+  <div class="toggle-container">
+    <span class="toggle-label">CONFRONTATION V30</span>
+    <label class="switch">
+      <input type="checkbox" class="toggle-option">
+      <span class="slider"></span>
+    </label>
+  </div>
+
+  <!-- Action Buttons -->
+  <div class="buttons">
+    <button class="btn" onclick="removeAll()">REMOVE ALL</button>
+    <button class="btn" onclick="openFF()">FF MAX</button>
+    <button class="btn" onclick="showToast('FF NORMAL Activated')">FF NORMAL</button>
+  </div>
+
+  <div class="footer">
+    © Copyright 2024 Judo H4x<br>
+    It's Only Sensitivity Macro Confrontation Panel for Main ID.<br>
+    Increasing 40% your drag headshot & accuracy. It's not a hack.
+  </div>
+</div>
+
+<!-- Toast Message -->
+<div class="toast" id="toast">Nice</div>
+
+<!-- JS Scripts -->
+<script>
+  function showToast(message) {
+    const toast = document.getElementById("toast");
+    toast.textContent = message;
+    toast.classList.add("show");
+    setTimeout(() => {
+      toast.classList.remove("show");
+    }, 1500);
+  }
+
+  function openFF() {
+    window.location.href = "https://play.google.com/store/apps/details?id=com.dts.freefiremax";
+  }
+
+  function removeAll() {
+    document.querySelectorAll('.toggle-option').forEach(t => t.checked = false);
+    showToast("Removed All");
+  }
+
+  document.querySelectorAll('.toggle-option').forEach(toggle => {
+    toggle.addEventListener('change', () => {
+      showToast("Activated");
+    });
+  });
+</script>
+
+<!-- Particles JS -->
+<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+<script>
+  particlesJS("particles-js", {
+    "particles": {
+      "number": { "value": 80 },
+      "color": { "value": "#ff0000" },
+      "shape": { "type": "circle" },
+      "opacity": { "value": 0.6 },
+      "size": { "value": 3 },
+      "move": { "enable": true, "speed": 2 }
+    },
+    "interactivity": {
+      "events": {
+        "onhover": {
+          "enable": true,
+          "mode": "grab"
+        }
+      }
+    }
+  });
+</script>
+
+</body>
+</html>
